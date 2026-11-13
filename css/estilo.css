@@ -1,0 +1,75 @@
+/* Plano Diretor de São Bento do Sapucaí — estilos compartilhados
+   Cores: verde #095B2E / #157D4C, vermelho #D61516, amarelo #F1D45C, azul acessibilidade #3483C1 */
+
+body{margin:0;background:#fff}
+a{color:#157D4C}a:hover{color:#095B2E}
+.wrap{max-width:1180px;margin:0 auto;padding-left:24px;padding-right:24px;box-sizing:border-box}
+
+/* Pular para o conteúdo */
+.pular{position:absolute;left:-9999px;top:0;background:#095B2E;color:#fff;padding:12px 18px;z-index:1000;font-weight:700}
+.pular:focus{left:12px;top:12px;color:#fff}
+.sr-only{position:absolute;left:-9999px}
+
+/* Menu */
+.nav a{color:#fff;text-decoration:none;font-family:Montserrat,sans-serif;font-weight:700;font-size:14px;letter-spacing:.04em;text-transform:uppercase;padding:16px 14px;display:inline-block}
+.nav a:hover,.nav a.on{background:#157D4C;color:#fff}
+.acc{font-family:Roboto,sans-serif;font-size:12px;font-weight:700;background:#3483C1;color:#fff;border:0;border-radius:4px;min-width:32px;height:28px;padding:0 8px;cursor:pointer}
+.acc:hover{background:#2A6C9F}
+
+/* Cards e botões */
+.card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:#fff;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.08);padding:28px 16px;text-decoration:none;color:#171717;text-align:center;min-height:150px;box-sizing:border-box;transition:box-shadow .2s, transform .2s}
+.card:hover{box-shadow:0 6px 20px rgba(0,0,0,.14);transform:translateY(-2px);color:#095B2E}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:Montserrat,sans-serif;font-weight:700;font-size:14px;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;border-radius:6px;padding:14px 22px;min-height:48px;box-sizing:border-box}
+.btn-red{background:#D61516;color:#fff}.btn-red:hover{background:#B01112;color:#fff}
+.btn-out{border:2px solid #fff;color:#fff}.btn-out:hover{background:#fff;color:#095B2E}
+.btn-green{background:#095B2E;color:#fff}.btn-green:hover{background:#157D4C;color:#fff}
+.btn-line{border:2px solid #095B2E;color:#095B2E}.btn-line:hover{background:#095B2E;color:#fff}
+.redbox{display:flex;align-items:center;gap:14px;background:#D61516;color:#fff;border-radius:8px;padding:18px 20px;text-decoration:none;font-family:Montserrat,sans-serif;font-weight:700;font-size:15px;min-height:64px;box-sizing:border-box}
+.redbox:hover{background:#B01112;color:#fff}
+.redbox-col{flex-direction:column;align-items:flex-start;gap:6px;min-height:110px;font-family:Roboto,sans-serif;font-weight:400;padding:20px 22px}
+.dbl{display:block;width:48px;height:3px;border-top:3px solid #095B2E;border-bottom:3px solid #D61516}
+
+/* Perguntas frequentes */
+details{background:#fff;border-radius:8px;box-shadow:0 1px 6px rgba(0,0,0,.07)}
+summary{cursor:pointer;padding:18px 22px;font-family:Montserrat,sans-serif;font-weight:700;font-size:16px;color:#095B2E;list-style-position:outside}
+
+/* Tabela da lei */
+table{border-collapse:collapse;width:100%;min-width:760px}
+th{font-family:Montserrat,sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:#fff;background:#095B2E;text-align:left;padding:14px 16px}
+td{padding:16px;border-bottom:1px solid #e6e6e6;font-size:15px;line-height:1.5;vertical-align:top}
+tr:nth-child(even) td{background:#FAFAFA}
+.pill{display:inline-block;font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px;white-space:nowrap}
+
+/* Mapas */
+.layer{display:flex;align-items:center;gap:12px;font-size:15px;min-height:40px;cursor:pointer}
+.layer input{width:20px;height:20px;accent-color:#095B2E}
+.dl{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding:18px 20px;border-bottom:1px solid #e6e6e6}
+.fmt{display:inline-flex;align-items:center;justify-content:center;min-width:56px;min-height:36px;padding:0 12px;border:2px solid #095B2E;border-radius:6px;color:#095B2E;font-weight:700;font-size:13px;text-decoration:none}
+.fmt:hover{background:#095B2E;color:#fff}
+#mapa{flex:999 1 560px;min-width:0;min-height:620px;border-radius:12px;border:1px solid #d5ded7;z-index:0}
+
+/* Participe */
+.fld{display:flex;flex-direction:column;gap:6px;font-size:15px}
+.fld label{font-weight:700;color:#095B2E}
+.fld input,.fld select,.fld textarea{font-family:Roboto,sans-serif;font-size:15px;border:1px solid #c9c9c9;border-radius:6px;padding:12px 14px;min-height:46px;box-sizing:border-box;background:#fff}
+.ev{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start;padding:20px 22px;border-bottom:1px solid #e6e6e6}
+.doc{display:inline-flex;align-items:center;min-height:32px;padding:0 10px;border-radius:4px;background:#E6F2EA;color:#095B2E;font-size:13px;font-weight:700;text-decoration:none}
+.doc:hover{background:#095B2E;color:#fff}
+
+/* Rodapé */
+.foot a{color:#fff}.foot a:hover{color:#F1D45C}
+
+/* Foco visível para navegação por teclado */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #F1D45C;outline-offset:2px}
+
+/* Alto contraste (ativado pelo botão "Contraste") */
+html.contraste *{background-color:#000 !important;background-image:none !important;color:#fff !important;border-color:#fff !important;box-shadow:none !important}
+html.contraste a,html.contraste a *{color:#FFEB3B !important}
+html.contraste svg *{stroke:#FFEB3B !important}
+html.contraste .leaflet-tile{filter:grayscale(1) invert(1)}
+
+/* Celular */
+@media (max-width:720px){
+  h1{font-size:32px !important}
+  .nav a{padding:12px 10px;font-size:13px}
+}

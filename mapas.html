@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mapas — Plano Diretor de São Bento do Sapucaí</title>
+<meta name="description" content="Mapa de zoneamento do Plano Diretor, consulta por endereço e download dos mapas oficiais.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&amp;family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+<div style="font-family: Roboto, system-ui, sans-serif; color: #171717; background: #fff">
+
+<header>
+<div style="height: 4px; background: #D61516"></div>
+<div style="background: #F4F4F4; border-bottom: 1px solid #e3e3e3">
+<div class="wrap" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; padding-top: 6px; padding-bottom: 6px; font-size: 13px">
+<div style="display: flex; flex-wrap: wrap; gap: 18px"><a href="https://saobentodosapucai.sp.gov.br/">Portal da Prefeitura</a><a href="#">Transparência</a><a href="#">Diário Oficial</a></div>
+<div style="display: flex; align-items: center; gap: 6px"><span style="color: #575756">Acessibilidade</span><button type="button" class="acc" data-acc="mais" aria-label="Aumentar texto">A+</button><button type="button" class="acc" data-acc="menos" aria-label="Diminuir texto">A−</button><button type="button" class="acc" data-acc="contraste" aria-pressed="false" aria-label="Alto contraste">Contraste</button></div>
+</div>
+</div>
+<div class="wrap" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; padding-top: 18px; padding-bottom: 18px">
+<a href="index.html" style="display: flex; align-items: center; gap: 14px; text-decoration: none">
+<div style="width: 64px; height: 64px; border-radius: 50%; background: #F4F4F4; border: 2px dashed #575756; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #575756; text-align: center">[BRASÃO]</div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: Montserrat, sans-serif; font-weight: 700; font-size: 12px; letter-spacing: .08em; color: #575756; text-transform: uppercase">Prefeitura de São Bento do Sapucaí</span><span style="font-family: Montserrat, sans-serif; font-weight: 800; font-size: 26px; color: #095B2E; text-transform: uppercase; letter-spacing: .02em">Plano Diretor</span></div>
+</a>
+<form style="display: flex; flex: 0 1 360px" role="search" data-pendente="A busca do site será ligada quando o site estiver hospedado.">
+<label for="busca" class="sr-only">Buscar no site</label>
+<input id="busca" type="search" placeholder="Buscar lei, mapa, bairro..." style="flex: 1; min-width: 0; height: 44px; border: 1px solid #c9c9c9; border-right: 0; border-radius: 6px 0 0 6px; padding: 0 14px; font-size: 15px; font-family: Roboto, sans-serif">
+<button type="submit" aria-label="Buscar" style="width: 48px; height: 44px; background: #157D4C; border: 0; border-radius: 0 6px 6px 0; display: flex; align-items: center; justify-content: center; cursor: pointer"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+</form>
+</div>
+<nav class="nav" aria-label="Menu principal" style="background: #095B2E">
+<div class="wrap" style="display: flex; flex-wrap: wrap"><a href="index.html">Início</a><a href="index.html">O que é</a><a href="lei.html">A Lei</a><a class="on" href="mapas.html">Mapas</a><a href="participe.html">Participe</a><a href="lei.html">Documentos</a><a href="index.html">Perguntas</a></div>
+</nav>
+</header>
+<main id="conteudo">
+
+<div style="background: #F4F4F4; border-bottom: 1px solid #e6e6e6">
+<div class="wrap" style="padding-top: 28px; padding-bottom: 36px; display: flex; flex-direction: column; gap: 12px">
+<nav aria-label="Você está em" style="font-size: 14px; color: #575756"><a href="index.html">Início</a> / Mapas</nav>
+<h1 style="margin: 0; font-family: Montserrat, sans-serif; font-weight: 800; font-size: 38px; color: #095B2E">Mapas e zoneamento</h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; max-width: 760px">Digite um endereço ou navegue pelo mapa para ver em qual zona fica cada área da cidade e da zona rural.</p>
+</div>
+</div>
+
+<section class="wrap" style="padding-top: 40px; padding-bottom: 48px">
+<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: stretch">
+<div style="flex: 1 1 300px; max-width: 380px; display: flex; flex-direction: column; gap: 22px">
+<form id="form-endereco" style="display: flex; flex-direction: column; gap: 8px">
+<label for="end" style="font-family: Montserrat, sans-serif; font-weight: 700; font-size: 15px; color: #095B2E">Consulte um endereço</label>
+<div style="display: flex">
+<input id="end" type="text" autocomplete="street-address" placeholder="Rua, número ou bairro" style="flex: 1; min-width: 0; height: 48px; border: 1px solid #c9c9c9; border-right: 0; border-radius: 6px 0 0 6px; padding: 0 14px; font-size: 15px; font-family: Roboto, sans-serif">
+<button type="submit" style="height: 48px; padding: 0 18px; background: #D61516; color: #fff; border: 0; border-radius: 0 6px 6px 0; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 14px; cursor: pointer">Buscar</button>
+</div>
+</form>
+<div id="resultado" aria-live="polite" style="background: #E6F2EA; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #575756">Resultado</span>
+<span id="res-titulo" style="font-family: Montserrat, sans-serif; font-weight: 800; font-size: 18px; color: #095B2E">Digite um endereço ou clique no mapa</span>
+<span id="res-texto" style="font-size: 15px; line-height: 1.55">Mostramos em qual zona o ponto fica e as regras principais dela.</span>
+<a href="lei.html" style="font-weight: 700; font-size: 15px">Ver a lei →</a>
+</div>
+<fieldset style="border: 1px solid #e3e3e3; border-radius: 10px; padding: 16px 20px; margin: 0; display: flex; flex-direction: column; gap: 2px">
+<legend style="font-family: Montserrat, sans-serif; font-weight: 700; font-size: 15px; color: #095B2E; padding: 0 6px">Camadas do mapa</legend>
+<label class="layer"><input type="checkbox" data-camada="zoneamento" data-cor="#5E9E63" checked><span style="width: 18px; height: 18px; border-radius: 4px; background: #9CCB9F; flex: none"></span>Zoneamento</label>
+<label class="layer"><input type="checkbox" data-camada="zeis" data-cor="#C9A92A" checked><span style="width: 18px; height: 18px; border-radius: 4px; background: #F1D45C; flex: none"></span>ZEIS</label>
+<label class="layer"><input type="checkbox" data-camada="corredor-bau" data-cor="#D61516" checked><span style="width: 18px; height: 18px; border-radius: 4px; background: #D61516; flex: none"></span>Corredor Especial do Baú</label>
+<label class="layer"><input type="checkbox" data-camada="aepar" data-cor="#3483C1"><span style="width: 18px; height: 18px; border-radius: 4px; background: #3483C1; flex: none"></span>Áreas de AEPAR</label>
+<label class="layer"><input type="checkbox" data-camada="corredor-comercial" data-cor="#7A4E9C"><span style="width: 18px; height: 18px; border-radius: 4px; background: #7A4E9C; flex: none"></span>Corredor comercial (R. Benedito Pereira Goulart)</label>
+<label class="layer"><input type="checkbox" data-camada="zona-rural" data-cor="#9C8656"><span style="width: 18px; height: 18px; border-radius: 4px; background: #C9B48A; flex: none"></span>Zona rural</label>
+</fieldset>
+<p id="aviso-camadas" style="margin: 0; font-size: 13px; color: #575756"></p>
+</div>
+<div id="mapa" role="region" aria-label="Mapa interativo do Plano Diretor"></div>
+</div>
+<p style="margin: 16px 0 0; font-size: 14px; color: #575756">O mapa interativo é uma ferramenta de consulta. Os mapas oficiais são os anexos publicados com a lei.</p>
+</section>
+
+<section style="background: #F4F4F4">
+<div class="wrap" style="padding-top: 56px; padding-bottom: 64px; display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; align-items: center; gap: 18px"><span class="dbl" aria-hidden="true"></span><h2 style="margin: 0; font-family: Montserrat, sans-serif; font-weight: 800; font-size: 26px; color: #095B2E; text-transform: uppercase; letter-spacing: .04em">Baixar os mapas oficiais</h2></div>
+<p style="margin: 0; font-size: 15px; color: #575756">PDF para imprimir ou ver no celular. KML abre no Google Earth. Shapefile é para quem trabalha com geoprocessamento.</p>
+<div style="background: #fff; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,.06)">
+<div class="dl"><div style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: Montserrat, sans-serif; font-weight: 700; color: #095B2E">[ANEXO X] · Mapa de zoneamento</span><span style="font-size: 14px; color: #575756">Atualizado pela Lei 2.649/2026 · [DATA]</span></div><div style="display: flex; gap: 8px"><a class="fmt" href="#">PDF</a><a class="fmt" href="#">KML</a><a class="fmt" href="#">SHP</a></div></div>
+<div class="dl"><div style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: Montserrat, sans-serif; font-weight: 700; color: #095B2E">[ANEXO X] · Zonas Especiais de Interesse Social (ZEIS)</span><span style="font-size: 14px; color: #575756">[DATA]</span></div><div style="display: flex; gap: 8px"><a class="fmt" href="#">PDF</a><a class="fmt" href="#">KML</a><a class="fmt" href="#">SHP</a></div></div>
+<div class="dl"><div style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: Montserrat, sans-serif; font-weight: 700; color: #095B2E">[ANEXO X] · Corredor Especial do Baú</span><span style="font-size: 14px; color: #575756">[DATA]</span></div><div style="display: flex; gap: 8px"><a class="fmt" href="#">PDF</a><a class="fmt" href="#">KML</a><a class="fmt" href="#">SHP</a></div></div>
+<div class="dl" style="border-bottom: 0"><div style="display: flex; flex-direction: column; gap: 4px"><span style="font-family: Montserrat, sans-serif; font-weight: 700; color: #095B2E">[ANEXO X] · [OUTROS MAPAS DO PLANO]</span><span style="font-size: 14px; color: #575756">[DATA]</span></div><div style="display: flex; gap: 8px"><a class="fmt" href="#">PDF</a><a class="fmt" href="#">KML</a><a class="fmt" href="#">SHP</a></div></div>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="foot" style="background: #095B2E; color: #fff">
+<div class="wrap" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 36px; padding-top: 56px; padding-bottom: 40px; font-size: 15px; line-height: 1.7">
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-family: Montserrat, sans-serif; font-weight: 800; font-size: 18px; text-transform: uppercase">Plano Diretor</span><a href="index.html">O que é</a><a href="lei.html">A Lei</a><a href="mapas.html">Mapas</a><a href="participe.html">Participe</a><a href="index.html">Perguntas frequentes</a></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-family: Montserrat, sans-serif; font-weight: 800; font-size: 18px; text-transform: uppercase">Contato</span><span>[SECRETARIA RESPONSÁVEL]</span><span>[ENDEREÇO]</span><span>[TELEFONE] · [E-MAIL]</span><span>Atendimento: [HORÁRIO]</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-family: Montserrat, sans-serif; font-weight: 800; font-size: 18px; text-transform: uppercase">Prefeitura</span><a href="https://saobentodosapucai.sp.gov.br/">Portal da Prefeitura</a><a href="#">Privacidade e LGPD</a><a href="#">Política de cookies</a><span>Encarregado de dados: [NOME]</span></div>
+</div>
+<div style="border-top: 1px solid rgba(255,255,255,.2)"><div class="wrap" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding-top: 16px; padding-bottom: 16px; font-size: 13px; color: #CFE5D7"><span>Prefeitura Municipal de São Bento do Sapucaí</span><span>Página atualizada em [DATA]</span></div></div>
+<div style="height: 4px; background: #D61516"></div>
+</footer>
+</div>
+
+<div vw class="enabled">
+<div vw-access-button class="active"></div>
+<div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>if (window.VLibras) new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
+<script src="js/site.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/mapa.js"></script>
+</body>
+</html>
